@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAMA – Reporting & Monitoring</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sb-header">
+      <div class="logo">
+        <span class="logo-title">RAMA</span>
+        <span class="logo-sub">Reporting & Monitoring</span>
+      </div>
+      <button id="toggle-btn">◀</button>
+    </div>
+    <nav>
+      <button class="nav-item active" data-page="dashboard"><span class="ni">⊞</span><span class="nl">Tableau de bord</span></button>
+      <button class="nav-item" data-page="activites"><span class="ni">◈</span><span class="nl">Activités</span></button>
+      <button class="nav-item" data-page="gantt"><span class="ni">≡</span><span class="nl">Gantt</span></button>
+      <button class="nav-item" data-page="taches"><span class="ni">✓</span><span class="nl">Tâches</span></button>
+      <button class="nav-item" data-page="agents"><span class="ni">⚇</span><span class="nl">Agents</span></button>
+      <button class="nav-item" data-page="notifications"><span class="ni">◉</span><span class="nl">Notifications</span><span id="notif-badge" class="badge-notif">2</span></button>
+      <button class="nav-item" data-page="feedback"><span class="ni">✦</span><span class="nl">Feedback</span></button>
+    </nav>
+    <div class="sb-user">
+      <div class="av">AD</div>
+      <div class="sb-user-info">
+        <div class="sb-name">Amadou Diallo</div>
+        <div class="sb-role">Directeur Général</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="main">
+    <header class="topbar">
+      <span id="page-title">Tableau de bord</span>
+      <span id="topbar-date"></span>
+    </header>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section class="page active" id="page-dashboard">
+        <div class="kpi-row">
+          <div class="kpi" style="--c:#1e3a5f"><div class="kpi-lbl">Activités en cours</div><div class="kpi-val">2</div><div class="kpi-sub">sur 5 activités</div></div>
+          <div class="kpi" style="--c:#10b981"><div class="kpi-lbl">Tâches terminées</div><div class="kpi-val">3/7</div><div class="kpi-sub">43% de complétion</div></div>
+          <div class="kpi" style="--c:#ef4444"><div class="kpi-lbl">Tâches en retard</div><div class="kpi-val">1</div><div class="kpi-sub">nécessite attention</div></div>
+          <div class="kpi" style="--c:#f59e0b"><div class="kpi-lbl">Type dominant</div><div class="kpi-val" style="font-size:18px">Atelier</div><div class="kpi-sub">2 activités</div></div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Avancement des tâches</h3>
+            <div class="prog-item"><div class="prog-head"><span>Rédaction des TDR</span><span class="badge t">Terminée</span></div><div class="bar"><div style="width:100%;background:#10b981"></div></div></div>
+            <div class="prog-item"><div class="prog-head"><span>Envoi des convocations</span><span class="badge ec">En cours</span></div><div class="bar"><div style="width:55%;background:#3b82f6"></div></div></div>
+            <div class="prog-item"><div class="prog-head"><span>Rapport final atelier</span><span class="badge nd">Non démarrée</span></div><div class="bar"><div style="width:10%;background:#d1d5db"></div></div></div>
+            <div class="prog-item"><div class="prog-head"><span>Rapport de mission</span><span class="badge er">En retard</span></div><div class="bar"><div style="width:75%;background:#ef4444"></div></div></div>
+            <div class="prog-item"><div class="prog-head"><span>Compte-rendu séminaire</span><span class="badge t">Terminée</span></div><div class="bar"><div style="width:100%;background:#10b981"></div></div></div>
+          </div>
+
+          <div class="card">
+            <h3>Productivité des agents</h3>
+            <div class="prod"><div class="av av-sm">FN</div><div class="prod-info"><div class="prod-h"><span>Fatou Ndiaye</span><span style="color:#065f46;font-weight:600">100%</span></div><div class="bar"><div style="width:100%;background:#10b981"></div></div></div></div>
+            <div class="prod"><div class="av av-sm">MF</div><div class="prod-info"><div class="prod-h"><span>Mariama Fall</span><span style="color:#1d4ed8;font-weight:600">67%</span></div><div class="bar"><div style="width:67%;background:#3b82f6"></div></div></div></div>
+            <div class="prod"><div class="av av-sm">OD</div><div class="prod-info"><div class="prod-h"><span>Ousmane Diop</span><span style="color:#92400e;font-weight:600">33%</span></div><div class="bar"><div style="width:33%;background:#f59e0b"></div></div></div></div>
+            <div class="prod"><div class="av av-sm">IS</div><div class="prod-info"><div class="prod-h"><span>Ibrahima Sow</span><span style="color:#94a3b8;font-weight:600">0%</span></div><div class="bar"><div style="width:0%;background:#d1d5db"></div></div></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Notifications récentes</h3>
+          <div class="nr retard"><span>⚠</span><span>Tâche 'Rapport de mission' en retard de 2 jours</span><span class="nd-date">08/04</span></div>
+          <div class="nr attribution"><span>✚</span><span>Nouvelle tâche assignée : Envoi des convocations</span><span class="nd-date">11/04</span></div>
+          <div class="nr rappel lu"><span>⏰</span><span>Rappel : rapport final atelier dû le 15/04</span><span class="nd-date">13/04</span></div>
+        </div>
+      </section>
+
+      <!-- ACTIVITÉS -->
+      <section class="page" id="page-activites">
+        <div class="sec-head">
+          <h2>Activités</h2>
+          <div class="filters" id="filters-activites">
+            <button class="pill active" data-filter="tout">Tout</button>
+            <button class="pill" data-filter="planifiee">Planifiée</button>
+            <button class="pill" data-filter="en_cours">En cours</button>
+            <button class="pill" data-filter="terminee">Terminée</button>
+          </div>
+        </div>
+        <div class="act-card" data-statut="en_cours"><div class="act-h"><div><div class="act-t">Atelier de planification 2026</div><div class="act-m"><span class="tag">Atelier</span> · Direction Technique · 10/04 → 15/04</div></div><span class="badge ec">En cours</span></div><div class="act-prog"><div class="bar"><div style="width:43%;background:#3b82f6"></div></div><span>3/7 tâches</span></div></div>
+        <div class="act-card" data-statut="planifiee"><div class="act-h"><div><div class="act-t">Forum partenaires régionaux</div><div class="act-m"><span class="tag">Forum</span> · Communication · 20/04 → 22/04</div></div><span class="badge pl">Planifiée</span></div><div class="act-prog"><div class="bar"><div style="width:0%;background:#d1d5db"></div></div><span>0/1 tâche</span></div></div>
+        <div class="act-card" data-statut="terminee"><div class="act-h"><div><div class="act-t">Séminaire gouvernance SI</div><div class="act-m"><span class="tag">Séminaire</span> · Direction Générale · 01/03 → 05/03</div></div><span class="badge t">Terminée</span></div><div class="act-prog"><div class="bar"><div style="width:100%;background:#10b981"></div></div><span>1/1 tâche</span></div></div>
+        <div class="act-card" data-statut="en_cours"><div class="act-h"><div><div class="act-t">Mission terrain Thiès</div><div class="act-m"><span class="tag">Mission</span> · Direction Technique · 05/04 → 08/04</div></div><span class="badge ec">En cours</span></div><div class="act-prog"><div class="bar"><div style="width:50%;background:#3b82f6"></div></div><span>1/2 tâches</span></div></div>
+        <div class="act-card" data-statut="planifiee"><div class="act-h"><div><div class="act-t">Colloque transformation numérique</div><div class="act-m"><span class="tag">Colloque</span> · Communication · 10/05 → 12/05</div></div><span class="badge pl">Planifiée</span></div><div class="act-prog"><div class="bar"><div style="width:0%;background:#d1d5db"></div></div><span>0/0 tâche</span></div></div>
+      </section>
+
+      <!-- GANTT -->
+      <section class="page" id="page-gantt">
+        <div class="sec-head">
+          <h2>Diagramme de Gantt</h2>
+          <select id="gantt-select" class="sel">
+            <option value="1">Atelier de planification 2026</option>
+            <option value="4">Mission terrain Thiès</option>
+            <option value="3">Séminaire gouvernance SI</option>
+          </select>
+        </div>
+
+        <div class="gantt-block" id="gantt-1">
+          <div class="card">
+            <p class="gantt-info">Atelier de planification — <span>10/04 → 15/04/2026 · 6 jours</span></p>
+            <div class="gtable-wrap">
+              <table class="gtable">
+                <thead><tr><th>Tâche</th><th>Agent</th><th>Période</th><th>Durée</th><th>Statut</th></tr></thead>
+                <tbody>
+                  <tr><td>Rédaction des TDR</td><td>M. Fall</td><td class="mono">10/04 → 11/04</td><td><div class="bar sm"><div style="width:100%;background:#10b981"></div></div></td><td><span class="badge t">Terminée</span></td></tr>
+                  <tr><td>Envoi des convocations</td><td>M. Fall</td><td class="mono">11/04 → 12/04</td><td><div class="bar sm"><div style="width:55%;background:#3b82f6"></div></div></td><td><span class="badge ec">En cours</span></td></tr>
+                  <tr><td>Rapport final atelier</td><td>O. Diop</td><td class="mono">14/04 → 15/04</td><td><div class="bar sm"><div style="width:10%;background:#d1d5db"></div></div></td><td><span class="badge nd">Non démarrée</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="gantt-block hidden" id="gantt-4">
+          <div class="card">
+            <p class="gantt-info">Mission terrain Thiès — <span>05/04 → 08/04/2026 · 4 jours</span></p>
+            <div class="gtable-wrap">
+              <table class="gtable">
+                <thead><tr><th>Tâche</th><th>Agent</th><th>Période</th><th>Durée</th><th>Statut</th></tr></thead>
+                <tbody>
+                  <tr><td>PV de réunion kick-off</td><td>M. Fall</td><td class="mono">05/04 → 06/04</td><td><div class="bar sm"><div style="width:100%;background:#10b981"></div></div></td><td><span class="badge t">Terminée</span></td></tr>
+                  <tr><td>Rapport de mission</td><td>O. Diop</td><td class="mono">07/04 → 08/04</td><td><div class="bar sm"><div style="width:75%;background:#ef4444"></div></div></td><td><span class="badge er">En retard</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="gantt-block hidden" id="gantt-3">
+          <div class="card">
+            <p class="gantt-info">Séminaire gouvernance SI — <span>01/03 → 05/03/2026 · 5 jours</span></p>
+            <div class="gtable-wrap">
+              <table class="gtable">
+                <thead><tr><th>Tâche</th><th>Agent</th><th>Période</th><th>Durée</th><th>Statut</th></tr></thead>
+                <tbody>
+                  <tr><td>Compte-rendu séminaire</td><td>F. Ndiaye</td><td class="mono">05/03 → 06/03</td><td><div class="bar sm"><div style="width:100%;background:#10b981"></div></div></td><td><span class="badge t">Terminée</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TÂCHES -->
+      <section class="page" id="page-taches">
+        <div class="sec-head">
+          <h2>Tâches</h2>
+          <div class="filters" id="filters-taches">
+            <button class="pill active" data-filter="tout">Tout</button>
+            <button class="pill" data-filter="non_demarree">Non démarrée</button>
+            <button class="pill" data-filter="en_cours">En cours</button>
+            <button class="pill" data-filter="en_retard">En retard</button>
+            <button class="pill" data-filter="terminee">Terminée</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="table-taches">
+            <thead><tr><th>Tâche</th><th>Type</th><th>Activité</th><th>Agent</th><th>Délai prévu</th><th>Fin réelle</th><th>Statut</th><th>Écart</th></tr></thead>
+            <tbody>
+              <tr data-statut="terminee"><td class="bold">Rédaction des TDR</td><td>Termes de réf.</td><td>Atelier planif.</td><td><div class="td-ag"><div class="av av-xs">MF</div>Fall</div></td><td class="mono">10/04 → 11/04</td><td class="mono">11/04</td><td><span class="badge t">Terminée</span></td><td class="ez">0j</td></tr>
+              <tr data-statut="en_cours"><td class="bold">Envoi des convocations</td><td>Convocation</td><td>Atelier planif.</td><td><div class="td-ag"><div class="av av-xs">MF</div>Fall</div></td><td class="mono">11/04 → 12/04</td><td class="mono">—</td><td><span class="badge ec">En cours</span></td><td>—</td></tr>
+              <tr data-statut="non_demarree"><td class="bold">Rapport final atelier</td><td>Rapport</td><td>Atelier planif.</td><td><div class="td-ag"><div class="av av-xs">OD</div>Diop</div></td><td class="mono">14/04 → 15/04</td><td class="mono">—</td><td><span class="badge nd">Non démarrée</span></td><td>—</td></tr>
+              <tr data-statut="non_demarree"><td class="bold">Préparation programme</td><td>Fiche technique</td><td>Forum partenaires</td><td><div class="td-ag"><div class="av av-xs">IS</div>Sow</div></td><td class="mono">18/04 → 19/04</td><td class="mono">—</td><td><span class="badge nd">Non démarrée</span></td><td>—</td></tr>
+              <tr data-statut="terminee"><td class="bold">Compte-rendu séminaire</td><td>Compte-rendu</td><td>Séminaire gouv.</td><td><div class="td-ag"><div class="av av-xs">FN</div>Ndiaye</div></td><td class="mono">05/03 → 07/03</td><td class="mono">06/03</td><td><span class="badge t">Terminée</span></td><td class="en">−1j</td></tr>
+              <tr data-statut="en_retard"><td class="bold">Rapport de mission</td><td>Rapport</td><td>Mission Thiès</td><td><div class="td-ag"><div class="av av-xs">OD</div>Diop</div></td><td class="mono">07/04 → 08/04</td><td class="mono">—</td><td><span class="badge er">En retard</span></td><td class="ep">+2j</td></tr>
+              <tr data-statut="terminee"><td class="bold">PV réunion kick-off</td><td>Procès-verbal</td><td>Mission Thiès</td><td><div class="td-ag"><div class="av av-xs">MF</div>Fall</div></td><td class="mono">05/04 → 06/04</td><td class="mono">06/04</td><td><span class="badge t">Terminée</span></td><td class="ez">0j</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- AGENTS -->
+      <section class="page" id="page-agents">
+        <div class="sec-head"><h2>Agents &amp; Productivité</h2></div>
+        <div class="agents-grid">
+          <div class="ag-card"><div class="ag-top"><div class="av av-lg">AD</div><div><div class="ag-nom">Amadou Diallo</div><div class="ag-poste">Directeur Général · Dir. Générale</div><div class="ag-n1" style="color:#10b981">Direction générale</div></div></div><div class="ag-pct-row"><span>Taux de complétion</span><span style="color:#94a3b8">—</span></div><div class="bar"><div style="width:0%"></div></div></div>
+          <div class="ag-card"><div class="ag-top"><div class="av av-lg">FN</div><div><div class="ag-nom">Fatou Ndiaye</div><div class="ag-poste">Directeur Technique · Dir. Technique</div><div class="ag-n1">N+1 : Amadou Diallo</div></div></div><div class="ag-pct-row"><span>Taux de complétion</span><span style="color:#065f46;font-weight:700">100%</span></div><div class="bar"><div style="width:100%;background:#10b981"></div></div></div>
+          <div class="ag-card"><div class="ag-top"><div class="av av-lg">IS</div><div><div class="ag-nom">Ibrahima Sow</div><div class="ag-poste">Resp. Communication · Communication</div><div class="ag-n1">N+1 : Amadou Diallo</div></div></div><div class="ag-pct-row"><span>Taux de complétion</span><span style="color:#92400e;font-weight:700">0%</span></div><div class="bar"><div style="width:0%;background:#f59e0b"></div></div></div>
+          <div class="ag-card"><div class="ag-top"><div class="av av-lg">MF</div><div><div class="ag-nom">Mariama Fall</div><div class="ag-poste">Ingénieur Projet · Dir. Technique</div><div class="ag-n1">N+1 : Fatou Ndiaye</div></div></div><div class="ag-pct-row"><span>Taux de complétion</span><span style="color:#1d4ed8;font-weight:700">67%</span></div><div class="bar"><div style="width:67%;background:#3b82f6"></div></div></div>
+          <div class="ag-card"><div class="ag-top"><div class="av av-lg">OD</div><div><div class="ag-nom">Ousmane Diop</div><div class="ag-poste">Ingénieur Projet · Dir. Technique</div><div class="ag-n1">N+1 : Fatou Ndiaye</div></div></div><div class="ag-pct-row"><span>Taux de complétion</span><span style="color:#92400e;font-weight:700">33%</span></div><div class="bar"><div style="width:33%;background:#f59e0b"></div></div></div>
+        </div>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+      <section class="page" id="page-notifications">
+        <div class="sec-head"><h2>Notifications</h2><span id="notifs-counter">2 non lues</span></div>
+        <div class="notif-card notif-retard" id="n1"><span class="nc-ico">⚠</span><div class="nc-body"><div class="nc-msg">Tâche 'Rapport de mission' en retard de 2 jours</div><div class="nc-meta"><span class="ntag ntag-retard">RETARD</span> 08/04/2026</div></div><button class="btn-lu" onclick="marquerLu('n1')">Marquer lu</button></div>
+        <div class="notif-card notif-attribution" id="n2"><span class="nc-ico">✚</span><div class="nc-body"><div class="nc-msg">Nouvelle tâche assignée : Envoi des convocations</div><div class="nc-meta"><span class="ntag ntag-attribution">ATTRIBUTION</span> 11/04/2026</div></div><button class="btn-lu" onclick="marquerLu('n2')">Marquer lu</button></div>
+        <div class="notif-card notif-rappel lu" id="n3"><span class="nc-ico">⏰</span><div class="nc-body"><div class="nc-msg">Rappel : rapport final atelier dû le 15/04</div><div class="nc-meta"><span class="ntag ntag-rappel">RAPPEL</span> 13/04/2026 <span class="lu-tag">✓ Lu</span></div></div></div>
+        <div class="notif-card notif-systeme lu" id="n4"><span class="nc-ico">ℹ</span><div class="nc-body"><div class="nc-msg">Tâche 'Rédaction des TDR' complétée avec succès</div><div class="nc-meta"><span class="ntag ntag-systeme">SYSTÈME</span> 11/04/2026 <span class="lu-tag">✓ Lu</span></div></div></div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="page" id="page-feedback">
+        <h2 style="margin-bottom:20px">Espace Feedback</h2>
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="avis">Avis</button>
+          <button class="tab-btn" data-tab="signalement">Signalement</button>
+          <button class="tab-btn" data-tab="idee">Boîte à idées</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-avis">
+          <div class="card form-card">
+            <h3>Évaluer une fonctionnalité</h3>
+            <div id="alert-avis" class="alert hidden"></div>
+            <div class="fg"><label>Fonctionnalité</label><select class="sel w100" id="avis-fonc"><option value="">— Choisir —</option><option>Tableau de bord</option><option>Diagramme Gantt</option><option>Gestion des tâches</option><option>Notifications</option></select></div>
+            <div class="fg"><label>Note</label><div class="stars"><button class="star" data-val="1">★</button><button class="star" data-val="2">★</button><button class="star" data-val="3">★</button><button class="star" data-val="4">★</button><button class="star" data-val="5">★</button></div></div>
+            <div class="fg"><label>Commentaire</label><textarea class="sel w100" id="avis-contenu" rows="4" placeholder="Votre avis…"></textarea></div>
+            <button class="btn btn-navy" onclick="submitForm('avis')">Soumettre l'avis</button>
+          </div>
+        </div>
+
+        <div class="tab-panel hidden" id="tab-signalement">
+          <div class="card form-card">
+            <h3>Signaler une compromission</h3>
+            <div id="alert-signalement" class="alert hidden"></div>
+            <div class="fg"><label>Type</label><select class="sel w100" id="signal-type"><option value="">— Choisir —</option><option>Accès non autorisé</option><option>Fuite de données</option><option>Dysfonctionnement</option><option>Autre</option></select></div>
+            <div class="fg"><label>Description</label><textarea class="sel w100" id="signal-desc" rows="5" placeholder="Décrivez le problème…"></textarea></div>
+            <button class="btn btn-red" onclick="submitForm('signalement')">Soumettre le signalement</button>
+          </div>
+        </div>
+
+        <div class="tab-panel hidden" id="tab-idee">
+          <div class="card form-card">
+            <h3>Soumettre une idée</h3>
+            <div id="alert-idee" class="alert hidden"></div>
+            <div class="fg"><label>Titre</label><input class="sel w100" type="text" id="idee-titre" placeholder="Titre de votre idée…"></div>
+            <div class="fg"><label>Description</label><textarea class="sel w100" id="idee-desc" rows="5" placeholder="Décrivez votre idée…"></textarea></div>
+            <button class="btn btn-gold" onclick="submitForm('idee')">Soumettre l'idée</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
