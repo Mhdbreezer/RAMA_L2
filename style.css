@@ -78,6 +78,14 @@ textarea {
 #sidebar.collapsed .sb-user-info {
   opacity: 0;
   pointer-events: none;
+  width: 0;
+  overflow: hidden;
+}
+#sidebar.collapsed .sb-header {
+  justify-content: center;
+}
+#sidebar.collapsed #toggle-btn {
+  margin: 0;
 }
 
 .sb-header {
@@ -111,6 +119,8 @@ textarea {
   border-radius: 6px;
   font-size: 11px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 #toggle-btn:hover {
   background: rgba(255, 255, 255, 0.18);
